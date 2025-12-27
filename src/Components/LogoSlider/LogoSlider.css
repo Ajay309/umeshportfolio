@@ -1,0 +1,176 @@
+/* Logo Slider Styles */
+.design-tools-section {
+  margin: 40px 0 30px;
+}
+
+.design-tools-section h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.design-tools-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+  border-radius: 2px;
+}
+
+.logo-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  border-radius: 12px;
+}
+
+.logo-slider-track {
+  display: flex;
+  animation: slide 20s linear infinite;
+  width: max-content;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-slide {
+  flex: 0 0 auto;
+  padding: 0 15px;
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  min-width: 120px;
+  height: 120px;
+}
+
+.logo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.logo-image {
+  height: 150px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  filter: grayscale(30%);
+  transition: all 0.3s ease;
+}
+
+.logo-item:hover .logo-image {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.logo-name {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+}
+
+/* Gradient overlays for fade effect */
+.logo-slider-container::before,
+.logo-slider-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logo-slider-container::before {
+  left: 0;
+}
+
+.logo-slider-container::after {
+  right: 0;
+}
+
+/* Pause animation on hover */
+.logo-slider-container:hover .logo-slider-track {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo-slider-container {
+    padding: 15px 0;
+  }
+  
+  .logo-slide {
+    padding: 0 10px;
+  }
+  
+  .logo-item {
+    min-width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+  
+  .logo-image {
+    height: 60px;
+  }
+  
+  .logo-name {
+    font-size: 0.8rem;
+  }
+  
+  .design-tools-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .logo-slider-container::before,
+  .logo-slider-container::after {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-item {
+    min-width: 85px;
+    height: 90px;
+  }
+
+
+  
+  .logo-image {
+    height: 75px;
+  }
+  
+  .logo-name {
+    font-size: 0.75rem;
+  }
+  
+  .logo-slider-container::before,
+  .logo-slider-container::after {
+    width: 30px;
+  }
+}
+
+/* Keep your existing About.css styles below this line */

@@ -1,0 +1,261 @@
+/* --- About Section Container --- */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 40px; 
+  margin: 0px auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Title Styling --- */
+.about-title {
+  position: relative;
+  margin-bottom: 20px;
+  opacity: 0; /* Hidden initially */
+  transform: translateY(-20px);
+  transition: all 0.6s ease-out;
+}
+
+/* When visible, animate title */
+.section-visible .about-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-title h1 {
+  font-size: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #fff, #b4b4b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-underline {
+  width: 0px; /* Start with 0 width */
+  height: 6px;
+  background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
+  border-radius: 10px;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  transition: width 0.6s ease-out 0.3s; /* Delay slightly */
+}
+
+/* Animate underline */
+.section-visible .title-underline {
+  width: 120px;
+}
+
+/* --- Layout --- */
+.about-sections {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- Left Side: Image Animation --- */
+.about-left {
+  flex-basis: 35%;
+  opacity: 0;
+  transform: translateX(-50px); /* Move left */
+  transition: all 0.8s ease-out 0.2s; /* 0.2s delay */
+}
+
+.section-visible .about-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.image-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 10px 50px rgba(0,0,0,0.3);
+}
+
+.about-left img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Right Side: Content Animation --- */
+.about-right {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transform: translateX(50px); /* Move right */
+  transition: all 0.8s ease-out 0.4s; /* 0.4s delay */
+}
+
+.section-visible .about-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-para p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #d4d4d4;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.about-para strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --- Skills Bar Animation --- */
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* The Animated Fill */
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #df8908, #b415ff);
+  border-radius: 10px;
+  width: 0%; /* Start at 0 */
+  transition: width 1.5s ease-in-out 0.5s; /* Delay so it fills after text appears */
+}
+
+/* When visible, read the variable we passed in JSX */
+.section-visible .skill-fill {
+  width: var(--w); 
+}
+
+/* --- Achievements Animation --- */
+.about-achievements {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  padding: 30px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out 0.6s; /* Long delay */
+}
+
+.section-visible .about-achievements {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.achievement-item {
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.achievement-item:hover {
+  transform: scale(1.1);
+}
+
+.achievement-item h1 {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.achievement-item p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #aeaeae;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 50px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+  .about {
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  .about-sections {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .about-left, .about-right {
+    flex-basis: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Reset transformations for simpler mobile feel if desired, 
+     but keeping them usually looks fine */
+  .image-card {
+    max-width: 300px; 
+    margin: 0 auto;
+  }
+
+  .about-para {
+    text-align: left;
+  }
+
+  .about-achievements {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .vertical-line {
+    width: 50px;
+    height: 1px;
+  }
+}
