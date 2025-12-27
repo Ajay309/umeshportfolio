@@ -223,20 +223,20 @@
   
   /* Top Left (Moved higher up) */
   .icon-1 { 
-    top: 21%; 
-    left: 5%; 
+    top: 13%; 
+    left: 13%; 
   }
 
   /* Top Right */
   .icon-2 { 
-    top: 18%; 
-    right: 5%; 
+    top: 10%; 
+    right: 8%; 
   }
 
   /* Bottom Left (Moved closer to edge) */
   .icon-3 { 
-    bottom: 60%; 
-    left: 5%; 
+    bottom: 62%; 
+    left: 19%; 
   }
 
   /* Bottom Right */
