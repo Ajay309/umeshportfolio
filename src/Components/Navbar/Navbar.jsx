@@ -5,23 +5,40 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [menu, setMenu] = useState("home");
-  const [isopen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // New state for scroll effect
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Check if we're on home page
   const isHomePage = location.pathname === '/';
 
-  // Scroll to section function
+  // Handle scroll effect for navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToSection = (sectionId) => {
     if (isHomePage) {
-      // Home page par hain toh direct scroll karo
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        // Offset for fixed navbar height
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     } else {
-      // Home page par nahi hain toh pehle home page par jao phir scroll karo
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -33,132 +50,69 @@ function Navbar() {
     setIsOpen(false);
   };
 
-  // Menu set karna based on current section (home page par)
-  useEffect(() => {
-    if (isHomePage) {
-      const handleScroll = () => {
-        const sections = ['home', 'about', 'services', 'work', 'contact'];
-        const currentSection = sections.find(section => {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            return rect.top <= 100 && rect.bottom >= 100;
-          }
-          return false;
-        });
-        if (currentSection) {
-          setMenu(currentSection);
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, [isHomePage]);
-
-  // Close menu function
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <nav className="navbar">
-      <div className="nav-left">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      
+      {/* Logo Section */}
+      <div className="nav-logo-container">
         <Link 
           to="/" 
           onClick={() => {
             setMenu("home");
-            if (isHomePage) {
-              scrollToSection('home');
-            }
+            if (isHomePage) scrollToSection('home');
           }}
         >
           <img src={logo} alt="Logo" className="logo" />
         </Link>
       </div>
 
-      <div className='hamburger' onClick={() => setIsOpen(!isopen)}>
-        <div className={`line ${isopen ? 'line1' : ''}`}></div>
-        <div className={`line ${isopen ? 'line2' : ''}`}></div>
-        <div className={`line ${isopen ? 'line3' : ''}`}></div>
+      {/* Hamburger Icon */}
+      <div className={`hamburger ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </div>
 
-      <ul className={`nav-menu ${isopen ? "open" : ""}`}>
-        {/* Home Link */}
-        <li>
-          <button 
-            className='nav-link' 
-            onClick={() => {
-              setMenu("home");
-              scrollToSection('home');
-            }}
-          >
-            Home
-          </button>
-        </li>
-        {/* About Link */}
-        <li>
-          <button 
-            className='nav-link' 
-            onClick={() => {
-              setMenu("about");
-              scrollToSection('about');
-            }}
-          >
-            About
-          </button>
-        </li>
-        {/* Services Link */}
-        <li>
-          <button 
-            className='nav-link' 
-            onClick={() => {
-              setMenu('services');
-              scrollToSection('services');
-            }}
-          >
-            Services
-          </button>
-        </li>
-        {/* Portfolio Link */}
-        <li>
-          <button 
-            className='nav-link' 
-            onClick={() => {
-              setMenu('work');
-              scrollToSection('work');
-            }}
-          >
-            Portfolio
-          </button>
-        </li>
-        {/* Contact Link */}
-        <li>
-          <button 
-            className='nav-link' 
-            onClick={() => {
-              setMenu('contact');
-              scrollToSection('contact');
-            }}
-          >
-            Contact
-          </button>
-        </li>
-        {/* Resume Link - Ye direct page navigate karega */}
-        <li>
-          <Link 
+      {/* Desktop & Mobile Menu */}
+      <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
+        {['home', 'about', 'services', 'work', 'contact'].map((item) => (
+          <li key={item} className="nav-item">
+            <button 
+              className={`nav-link ${menu === item ? "active-link" : ""}`}
+              onClick={() => {
+                setMenu(item);
+                scrollToSection(item);
+              }}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {menu === item && <div className="dot"></div>} {/* Active Dot */}
+            </button>
+          </li>
+        ))}
+        
+        {/* Resume Link */}
+        <li className="nav-item">
+           <Link 
             to="/show-resume" 
-            className='nav-link'
+            className="nav-link"
             onClick={() => {
               setMenu('resume');
               setIsOpen(false);
             }}
-          >
+           >
             Resume
-          </Link>
+           </Link>
+        </li>
+
+        {/* Connect Button (Visible inside menu on mobile) */}
+        <li className="mobile-connect">
+           <button className="connect-btn-mobile" onClick={() => scrollToSection('contact')}>
+             Connect With Me
+           </button>
         </li>
       </ul>
 
+      {/* Connect Button (Desktop Only) */}
       <div className="nav-connect">
         <button 
           className='connect-btn' 

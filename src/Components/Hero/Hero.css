@@ -223,25 +223,25 @@
   
   /* Top Left (Moved higher up) */
   .icon-1 { 
-    top: 14%; 
+    top: 5%; 
     left: 5%; 
   }
 
   /* Top Right */
   .icon-2 { 
-    top: 14%; 
+    top: 8%; 
     right: 5%; 
   }
 
   /* Bottom Left (Moved closer to edge) */
   .icon-3 { 
-    bottom: 60%; 
+    bottom: 5%; 
     left: 5%; 
   }
 
   /* Bottom Right */
   .icon-4 { 
-    bottom: 60%; 
+    bottom: 8%; 
     right: 5%; 
   }
 }
@@ -249,7 +249,9 @@
 /* --- Extra Small Screens (optional) --- */
 @media (max-width: 400px) {
   /* On very small phones, maybe hide the bottom ones to save space */
- 
+  .icon-3, .icon-4 {
+    display: none;
+  }
 }
 
 @keyframes float-random {
