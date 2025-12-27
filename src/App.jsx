@@ -31,7 +31,7 @@ const HomePage = () => {
       <div id="home"><Hero/></div>
       <div id="about"><About/></div>
             <div id="logo-slider"><LogoSlider/></div>
-      <div id="services"><Services/></div>
+      {/* <div id="services"><Services/></div> */}
       <div id="work"><MyWork/></div>
       <div id="contact"><Contact/></div>
       <Footer/>
