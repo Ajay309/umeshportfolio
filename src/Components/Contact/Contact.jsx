@@ -44,15 +44,12 @@ function Contact() {
           <div className="contact-details">
             <div className="contact-detail">
               <i className="fa-solid fa-envelope"></i>
-              <p>dineshsingh881998@gmail.com</p>
+              <p>umeshsaini773396@gmail.com</p>
             </div>
-            <div className="contact-detail">
-              <i className="fa-solid fa-house"></i>
-              <p>Rajsthan, India</p>
-            </div>
+            
             <div className="contact-detail">
               <i className="fa-solid fa-phone"></i>
-              <p>+91 9983969805</p>
+              <p>+91 7733962307</p>
             </div>
           </div>
         </div>
