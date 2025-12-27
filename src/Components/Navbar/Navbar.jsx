@@ -75,7 +75,7 @@ function Navbar() {
 
       {/* Desktop & Mobile Menu */}
       <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
-        {['home', 'about', 'services', 'work', 'contact'].map((item) => (
+        {['home', 'about', 'work', 'contact'].map((item) => (
           <li key={item} className="nav-item">
             <button 
               className={`nav-link ${menu === item ? "active-link" : ""}`}
