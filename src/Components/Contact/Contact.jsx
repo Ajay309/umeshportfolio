@@ -70,12 +70,7 @@ function Contact() {
               <p>+91 7733962307</p>
             </div>
             
-            <div className="contact-detail">
-               <div className="icon-box">
-                 <i className="fa-solid fa-location-dot"></i>
-               </div>
-               <p>India</p>
-            </div>
+           
           </div>
         </div>
 
