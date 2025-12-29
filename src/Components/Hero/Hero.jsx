@@ -42,7 +42,7 @@ function Hero() {
 
       <h1 className="hero-title">
         <span className="gradient-text">I'm Umesh Saini,</span> <br />
-        Graphic Designer based in India.
+        Graphic Designer.
       </h1>
       
       <p className="hero-description">
