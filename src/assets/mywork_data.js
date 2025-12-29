@@ -25,6 +25,7 @@ import project24 from "./Portfolio_Page_24.jpg";
 
 export const mywork_data = [
     {
+        w_no: 1,
         images: [project1,project2,project3,project4,project5,project6,project7,project8,project9,project10,project11,project12,project13,project14,project15,project16,project17,project18,project19,project20,project21,project22,project23,project24], // Added images 2, 3, 4 to project 1
     },
     
