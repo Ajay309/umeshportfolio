@@ -55,9 +55,7 @@ function About() {
         <div className="about-right">
           <div className="about-para">
             <p>
-              I am a <strong>Graphic Designer</strong> with over 2 years of experience in creating visually appealing designs. 
-              I specialize in social media creatives, branding, and digital marketing visuals, ensuring every project meets 
-              high standards of quality and consistency.
+             I am a <span>Graphic Designer</span> and video editor over 2 years of experience who bring ideas to life through strong visuals and storytelling. I have worked on social media creatives, branding, and digital marketing visuals, ensuring strong brand consistency and adherence to project requirements. For me, creativity isn't just a skill—it's a mindset aimed at creating visuals people remember.
             </p>
             <p>
               My goal is to craft modern, aesthetically engaging designs that deliver meaningful value. I am constantly 
