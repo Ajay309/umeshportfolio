@@ -4,7 +4,7 @@ import './LogoSlider.css';
 // Import your local logo files
 import PhotoshopLogo from '../../logos/01.png'; 
 import IllustratorLogo from '../../logos/gowamrit.png';
-import CoralDrawLogo from '../../logos/mandia.png';
+import CoralDrawLogo from '../../logos/Mandia.png';
 import PremiereProLogo from '../../logos/MCCafe.png';
 import AfterEffectsLogo from '../../logos/perfume.png';
 
