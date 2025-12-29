@@ -36,6 +36,7 @@
 }
 
 .title-underline {
+  display: none;
   width: 0px; /* Start with 0 width */
   height: 6px;
   background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
@@ -48,6 +49,7 @@
 
 /* Animate underline */
 .section-visible .title-underline {
+  display: none;
   width: 120px;
 }
 
