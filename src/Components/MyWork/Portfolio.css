@@ -13,7 +13,7 @@
 .portfolio-section {
   padding: 80px 20px;
   background-color: var(--pf-bg);
-  min-height: 100vh;
+  min-height: 75vh;
   font-family: 'Outfit', sans-serif;
   color: var(--pf-text);
 }
