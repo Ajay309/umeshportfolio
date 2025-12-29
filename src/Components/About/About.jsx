@@ -69,17 +69,17 @@ function About() {
             {/* Note: We pass the width as a custom CSS variable '--w' */}
             
             <div className="skill-item">
-              <div className="skill-info"> <p>Photoshop</p> <p>80%</p> </div>
+              <div className="skill-info"> <p>Photoshop</p> <p>95%</p> </div>
               <div className="skill-bar"><div className="skill-fill" style={{"--w": "80%"}}></div></div>
             </div>
 
             <div className="skill-item">
-              <div className="skill-info"> <p>Illustrator</p> <p>60%</p> </div>
+              <div className="skill-info"> <p>Illustrator</p> <p>90%</p> </div>
               <div className="skill-bar"><div className="skill-fill" style={{"--w": "60%"}}></div></div>
             </div>
 
             <div className="skill-item">
-              <div className="skill-info"> <p>CorelDraw</p> <p>65%</p> </div>
+              <div className="skill-info"> <p>CorelDraw</p> <p>80%</p> </div>
               <div className="skill-bar"><div className="skill-fill" style={{"--w": "65%"}}></div></div>
             </div>
 

@@ -68,8 +68,7 @@ function Contact() {
                 <i className="fa-solid fa-phone"></i>
               </div>
               <p>+91 7733962307</p>
-            </div>
-            
+            </div> 
            
           </div>
         </div>

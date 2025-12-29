@@ -35,8 +35,8 @@ function Resume() {
 
   const skills = {
     software: [
-      { name: "Photoshop", level: 90 },
-      { name: "Corel Draw", level: 85 },
+      { name: "Photoshop", level: 95 },
+      { name: "Corel Draw", level: 90 },
       { name: "Illustrator", level: 80 },
       { name: "Premier Pro", level: 75 }
     ],
