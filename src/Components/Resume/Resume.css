@@ -53,7 +53,7 @@ body {
 
 /* Container */
 .app-container {
-  /* max-width: 1200px; */
+  max-width: 1200px; /* Constrain width */
   margin: 0 auto;
   padding: 108px 20px;
   min-height: 100vh;
@@ -100,6 +100,7 @@ body {
   width: 140px;
   height: 140px;
   margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .profile-img2 {
@@ -192,7 +193,7 @@ body {
 }
 
 .highlight {
-background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
+  background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -271,7 +272,7 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
 
 .progress-fill {
   height: 100%;
-background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
+  background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   border-radius: 3px;
   position: relative;
 }
@@ -319,6 +320,13 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   border-radius: 16px;
   margin-bottom: 25px;
   gap: 5px;
+  overflow-x: auto; /* Allow scrolling on mobile */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.nav-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .nav-item {
@@ -334,6 +342,8 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  white-space: nowrap; /* Prevent text wrap */
+  min-width: 100px; /* Ensure buttons don't shrink too small */
 }
 
 .nav-item.active {
@@ -376,7 +386,7 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   border-radius: 2px;
 }
 
-/* Experience & Education Items */
+/* Timeline Cards */
 .timeline-card {
   position: relative;
   padding-left: 30px;
@@ -401,6 +411,8 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 10px;
+  flex-wrap: wrap; /* Allow wrapping on mobile */
+  gap: 10px;
 }
 
 .role-name { font-size: 1.2rem; font-weight: 600; color: white; }
@@ -411,6 +423,7 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   border-radius: 6px;
   font-size: 0.8rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .description-list {
@@ -436,7 +449,7 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
@@ -456,51 +469,109 @@ background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   border-color: rgba(255,255,255,0.1);
 }
 
-.project-head {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
 
-.project-links {
-  display: flex;
-  gap: 10px;
-}
+/* --- MOBILE RESPONSIVE FIXES --- */
 
-.link-icon {
-  color: var(--text-muted);
-  transition: 0.2s;
-}
-
-.link-icon:hover { color: var(--primary); }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .header-grid, .main-grid {
-    grid-template-columns: 1fr;
+/* Tablet & Mobile (Max Width 968px) */
+@media (max-width: 968px) {
+  .app-container {
+    padding: 90px 15px; /* Less padding on sides */
   }
-  
+
+  /* Stack Header Grid */
+  .header-grid {
+    grid-template-columns: 1fr; /* Single Column */
+    gap: 20px;
+  }
+
+  /* Profile Card Adjustments */
   .profile-card {
     flex-direction: row;
+    align-items: center;
     text-align: left;
     gap: 20px;
-    padding: 20px;
+    padding: 25px;
   }
 
-  .profile-img-wrapper {
-    width: 80px;
-    height: 80px;
+  .profile-img-wrapper2 {
+    width: 100px;
+    height: 100px;
     margin-bottom: 0;
   }
-  
-  .social-links { margin-left: auto; margin-top: 0; }
-  
-  .intro-text h1 { font-size: 2rem; }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .social-links {
+    margin-top: 0;
+    margin-left: auto; /* Push to right */
+  }
+
+  /* Stack Main Grid */
+  .main-grid {
+    grid-template-columns: 1fr; /* Sidebar stacks above content */
+    gap: 30px;
+  }
 }
 
+/* Mobile Small (Max Width 600px) */
 @media (max-width: 600px) {
-  .profile-card { flex-direction: column; text-align: center; }
-  .social-links { margin: 20px auto 0; }
-  .contact-row { flex-direction: column; gap: 10px; }
-  .nav-container { overflow-x: auto; }
+  /* Stack Profile Card Vertically */
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .profile-img-wrapper2 {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+  }
+
+  .social-links {
+    margin: 15px auto 0; /* Center social links */
+  }
+
+  /* Header Text */
+  .intro-text h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  /* Contact Pills Stack */
+  .contact-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .contact-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Navigation Scroll */
+  .nav-container {
+    justify-content: flex-start; /* Align left to allow scroll */
+  }
+
+  .nav-item {
+    flex: 0 0 auto; /* Don't shrink */
+  }
+
+  .content-wrapper {
+    padding: 20px;
+  }
+  
+}
+@media (max-width: 968px) {
+  .main-grid {
+    display: flex;
+    flex-direction: column-reverse; /* Puts Content (2nd child) on top, Sidebar (1st child) on bottom */
+    gap: 30px;
+  }
 }

@@ -204,7 +204,7 @@
 }
 
 /* --- DESKTOP POSITIONS (Large Screens) --- */
-.icon-1 { top: 15%; left: 10%; width: 70px; animation-delay: 0s; }    /* Photoshop */
+.icon-1 { top: 15%; left: 10%; width: 70px; animation-delay: 1s; }    /* Photoshop */
 .icon-2 { top: 20%; right: 15%; width: 55px; animation-delay: 1.5s; } /* Illustrator */
 .icon-3 { bottom: 15%; left: 8%; width: 65px; animation-delay: 3s; }  /* Premiere */
 .icon-4 { bottom: 20%; right: 10%; width: 60px; animation-delay: 4.5s; } /* After Effects */
