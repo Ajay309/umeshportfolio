@@ -30,7 +30,7 @@ function Resume() {
     phone: "7733962307",
     location: "Ranoli, Sikar",
     photo: profilePhoto,
-    about: "I am a Graphic Designer and video editor who bring ideas to life through strong visuals and storytelling. I have worked on social media creatives, branding, and digital marketing visuals, ensuring strong brand consistency and adherence to project requirements. For me, creativity isn't just a skill—it's a mindset aimed at creating visuals people remember."
+    about: "I am a Graphic Designer and video editor over 2 years of experience who bring ideas to life through strong visuals and storytelling. I have worked on social media creatives, branding, and digital marketing visuals, ensuring strong brand consistency and adherence to project requirements. For me, creativity isn't just a skill—it's a mindset aimed at creating visuals people remember."
   };
 
   const skills = {
