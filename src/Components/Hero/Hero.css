@@ -200,7 +200,7 @@
   height: 60px;
   object-fit: contain;
   opacity: 0.8;
-  animation: float-random 2s ease-in-out infinite;
+  /* animation: float-random 2s ease-in-out infinite; */
 }
 
 /* --- DESKTOP POSITIONS (Large Screens) --- */
@@ -209,6 +209,14 @@
 .icon-3 { bottom: 15%; left: 8%; width: 65px; animation-delay: 3s; }  /* Premiere */
 .icon-4 { bottom: 20%; right: 10%; width: 60px; animation-delay: 4.5s; } /* After Effects */
 
+.tool-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  /* opacity is now handled by GSAP, but keep a fallback */
+  opacity: 0; 
+}
 
 /* --- MOBILE RESPONSIVENESS (Small Screens) --- */
 @media (max-width: 768px) {
@@ -254,8 +262,8 @@
   } */
 }
 
-@keyframes float-random {
+/* @keyframes float-random {
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-15px) rotate(5deg); }
   100% { transform: translateY(0px) rotate(0deg); }
-}
+} */
