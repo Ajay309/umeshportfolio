@@ -59,7 +59,7 @@ function About() {
             </p>
             <p>
               My goal is to craft modern, aesthetically engaging designs that deliver meaningful value. I am constantly 
-              exploring new trends in <strong>Photoshop, Illustrator, and Premiere Pro</strong> to stay ahead of the curve.
+              exploring new trends in <strong>Photoshop,CorelDRAW, Illustrator, and Premiere Pro</strong> to stay ahead of the curve.
             </p>
           </div>
 
