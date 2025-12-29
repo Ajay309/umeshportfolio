@@ -224,7 +224,7 @@
 /* --- Mobile Responsiveness --- */
 @media (max-width: 900px) {
   .about {
-    padding: 60px 20px;
+    padding: 30px 20px;
     gap: 40px;
   }
 
