@@ -411,7 +411,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 10px;
-  flex-wrap: wrap; /* Allow wrapping on mobile */
+  /* flex-wrap: wrap; */
   gap: 10px;
 }
 
@@ -522,6 +522,10 @@ body {
     flex-direction: column;
     text-align: center;
     padding: 30px 20px;
+  }
+
+  .role-header{
+    display: flex;
   }
 
   .profile-img-wrapper2 {
