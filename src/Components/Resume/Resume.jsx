@@ -65,8 +65,8 @@ function Resume() {
     // Added Internship
     {
       id: 2,
-      position: "Internship",
-      company: "Graphic Design Intern",
+      position: "Graphic Design Intern",
+      company: "Sikar Inotech - Sikar",
       period: "Jan 2024 (1 Month)",
       achievements: [
         "Gained hands-on experience in graphic design workflows.",
